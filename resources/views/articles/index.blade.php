@@ -11,10 +11,15 @@
                 <div class="col-md-6 mb-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $article->name }}</h5>
+                            <h5 class="card-title">
+                                <!-- Делаем имя статьи ссылкой -->
+                                <a href="{{ route('articles.show', $article->id) }}" class="text-decoration-none">
+                                    {{ $article->name }}
+                                </a>
+                            </h5>
                             <p class="card-text">{{ Str::limit($article->body, 100) }}</p>
                             <small class="text-muted">
-                                Created: {{ $article->created_at->format('d.m.Y') }}
+                                Created: {{ $article->created_at->format('d.m.Y') }} <br><br>
                             </small>
                         </div>
                     </div>

@@ -14,4 +14,10 @@ class ArticleController extends Controller
         // compact('articles') => [ 'articles' => $articles ]
         return view('articles.index', compact('articles'));
     }
+
+    public function show($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('articles.show', compact('article'));
+    }
 }
