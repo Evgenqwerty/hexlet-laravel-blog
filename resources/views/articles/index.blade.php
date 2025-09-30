@@ -4,6 +4,9 @@
 
 @section('content')
     <h1>Articles</h1>
+    <a href="{{ route('articles.create') }}" class="text-decoration-none">
+        Создать статью
+    </a>
 
     @if($articles->count())
         <div class="row">
@@ -15,6 +18,10 @@
                                 <!-- Делаем имя статьи ссылкой -->
                                 <a href="{{ route('articles.show', $article->id) }}" class="text-decoration-none">
                                     {{ $article->name }}
+                                </a>
+                                <br>
+                                <a href="{{ route('articles.edit', $article->id) }}" class="text-decoration-none">
+                                    Редактировать {{ $article->name }}
                                 </a>
                             </h5>
                             <p class="card-text">{{ Str::limit($article->body, 100) }}</p>
